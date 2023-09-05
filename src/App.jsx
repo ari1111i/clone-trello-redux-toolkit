@@ -1,30 +1,33 @@
-import React from "react";
-import { HashRouter as Router, Routes, Route } from "react-router-dom";
-import Header from "./components/UI/header/Header";
-import Products from "./components/router/Products";
-import ProductDetails from "./components/router/ProductDetails";
-import './components/router/productsData'
-import "./App.css";
-import { styled } from 'styled-components'
+import React, { useState } from 'react';
+import Header from './components/Header';
+import Body from './components/Body';
+import { Provider } from 'react-redux';
+import store from './store';
+import LoginTrello from './components/LoginTrello';
 
-function App() {
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    setIsLoggedIn(true);
+  };
+
+  const handleLogout = () => {
+    setIsLoggedIn(false);
+  };
+
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductDetails />} />
-      </Routes>
-      
-    </Router>
+    <Provider store={store}>
+      {isLoggedIn ? (
+        <div>
+          <Header onLogout={handleLogout} />
+            <Body />
+          </div>
+      ) : (
+        <LoginTrello onLogin={handleLogin} />
+      )}
+    </Provider>
   );
-}
-
-const Home = () => <H2>Home Page</H2>;
-
-const H2 = styled('h2')`
-   margin-left: 630px;
-`
+};
 
 export default App;
