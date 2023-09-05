@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/clone-trello-redux-toolkit/static/css/main.e6c13ad2.css",
+    "main.js": "/clone-trello-redux-toolkit/static/js/main.1218c1ea.js",
+    "index.html": "/clone-trello-redux-toolkit/index.html",
+    "main.e6c13ad2.css.map": "/clone-trello-redux-toolkit/static/css/main.e6c13ad2.css.map",
+    "main.1218c1ea.js.map": "/clone-trello-redux-toolkit/static/js/main.1218c1ea.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.1218c1ea.js"
+  ]
+}
